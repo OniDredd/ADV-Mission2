@@ -1,0 +1,19 @@
+.searchtile_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5vh 5vw;
+    margin: 2vh 0;
+    background-color: #f6f6f6;
+    text-align: left;
+    border-radius: 10px;
+
+    .blocklink {
+        color: black;
+        text-decoration: none;
+        &:hover{
+            color: rgb(24, 122, 220);
+        }
+    }
+}

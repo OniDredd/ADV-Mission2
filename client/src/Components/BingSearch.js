@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styles from './BingSearch.module.scss';
+import SearchTile from './SearchTile';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -10,7 +11,9 @@ const Search = () => {
     event.preventDefault();
     try {
       const response = await axios.get(`http://localhost:3001/search?q=${searchTerm}`);
+      console.log('Response from server:', response.data);
       setResults(response.data);
+      console.log('Results in state:', results);
     } catch (error) {
       console.error(error);
     }
@@ -23,13 +26,14 @@ const Search = () => {
         <input className={styles.search} type="text" value={searchTerm} placeholder='Write search in here' onChange={(event) => setSearchTerm(event.target.value)} />
         <button type="submit">Search</button>
       </form>
-      <ul>
-        {results.map(result => (
-          <li key={result.id}>
-            <a href={result.url}>{result.name}</a>
-          </li>
-        ))}
-      </ul>
+    
+      <div className={styles.searchresults_container}>
+        <ul>
+          {results.map(result => (
+            <SearchTile key={result.id}  link={result.url} name={result.name} text={result.snippet} />
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };
