@@ -1,0 +1,27 @@
+.form_container{
+    padding: 5vh 0;
+
+    h1{
+        color: rgb(24, 122, 220);
+    }
+
+    button{
+        padding: 10px 20px;
+        background-color:  rgb(24, 122, 220);
+        color: white;
+        border-radius: 5px;
+        border: 1px solid white;
+        margin-left: 5px;
+
+        &:hover{
+            background-color: deepskyblue;
+        }
+    }
+
+    .search{
+        width: 30vw;
+        height: 35px;
+        border: 1px solid rgb(24, 122, 220);
+        padding: 0 10px;
+    }
+}
